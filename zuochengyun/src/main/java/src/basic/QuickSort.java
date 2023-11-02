@@ -1,8 +1,6 @@
 package src.basic;
 
 import com.alibaba.fastjson.JSON;
-import jdk.nashorn.internal.objects.NativeJSON;
-import netscape.javascript.JSObject;
 
 import java.util.Arrays;
 
