@@ -12,8 +12,9 @@ public class QuickSort {
         int maxSize = 10;
         int maxValue = 100;
         boolean succeed = true;
-//        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 100; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
+//            int[] arr1 = new int[]{3,5,4,0,4,6,7,2};
             System.out.println("arr1="+ JSON.toJSONString(arr1));
 //            int[] arr1 = new int[]{4,3,5,2,1,7,8,9};
             int[] arr2 = copyArray(arr1);
@@ -22,9 +23,9 @@ public class QuickSort {
             proccess(arr1, 0, arr1.length - 1);
             if (!isEqual(arr1, arr2)) {
                 succeed = false;
-//                break;
+                break;
             }
-//        }
+        }
         System.out.println(succeed ? "Nice!" : "Oops!");
 
     }
@@ -36,11 +37,8 @@ public class QuickSort {
         }
         swap(arr,L +(int)Math.random()*(R-L+1),R);
         int[] sort = sort(arr, L, R);
-        System.out.println("1" + JSON.toJSONString(arr));
         proccess(arr,L,sort[0]-1);
-        System.out.println("2" +JSON.toJSONString(arr));
         proccess(arr,sort[1]+1,R);
-        System.out.println("3" +JSON.toJSONString(arr));
     }
 
     public static int[] sort(int[] arr,int L ,int R){
