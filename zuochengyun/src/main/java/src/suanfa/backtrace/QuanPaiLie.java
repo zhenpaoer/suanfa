@@ -17,9 +17,33 @@ public class QuanPaiLie {
         result.clear();
         proccess1(new ArrayList<>(),nums);
         System.out.println(result.toString());
+        permute(new int[]{1,2,3});
+        System.out.println(ans.toString());
     }
 
+    private static final List<List<Integer>> ans = new ArrayList<>();
+    private static final  List<Integer> selected = new ArrayList<>();
+    public static List<List<Integer>> permute(int[] nums) {
 
+        proccess(nums,selected);
+        return ans;
+    }
+
+    private static void proccess(int[] nums,List<Integer> selected){
+        if(selected.size() == nums.length){
+            ans.add(new ArrayList<>(selected));
+            return;
+        }
+        for(Integer num:nums){
+            if(selected.contains(num)){
+                continue;
+            }
+            selected.add(num);
+            proccess(nums,selected);
+            selected.remove(num);
+        }
+
+    }
     public static void proccess1(List<Integer> selected,List<Integer> all){
         if (selected.size() == all.size()){
             result.add(selected.toString());
